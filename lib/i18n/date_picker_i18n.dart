@@ -19,6 +19,7 @@ part 'strings_ru.dart';
 part 'strings_tr.dart';
 part 'strings_zh_cn.dart';
 part 'strings_fr.dart';
+part 'strings_vi.dart';
 
 abstract class _StringsI18n {
   const _StringsI18n();
@@ -96,11 +97,14 @@ enum DateTimePickerLocale {
 
   /// French (FR)
   fr,
+
+  /// French (FR)
+  vi,
 }
 
 /// Default value of date locale
 const DateTimePickerLocale DATETIME_PICKER_LOCALE_DEFAULT =
-    DateTimePickerLocale.en_us;
+    DateTimePickerLocale.vi;
 
 const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.en_us: const _StringsEnUs(),
@@ -122,6 +126,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.no_nb: const _StringsNoNb(),
   DateTimePickerLocale.no_nn: const _StringsNoNn(),
   DateTimePickerLocale.fr: const _StringsFr(),
+  DateTimePickerLocale.vi: const _StringsVI(),
 };
 
 class DatePickerI18n {
