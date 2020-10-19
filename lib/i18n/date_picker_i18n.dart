@@ -98,7 +98,7 @@ enum DateTimePickerLocale {
   /// French (FR)
   fr,
 
-  /// French (FR)
+  /// VietNam (VI)
   vi,
 }
 
