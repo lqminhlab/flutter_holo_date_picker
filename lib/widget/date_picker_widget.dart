@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../date_time_formatter.dart';
 import '../date_picker_theme.dart';
 import '../date_picker_constants.dart';
 import '../i18n/date_picker_i18n.dart';
+import 'picker.dart';
 
 /// Solar months of 31 days.
 const List<int> _solarMonthsOf31Days = const <int>[1, 3, 5, 7, 8, 10, 12];
@@ -15,6 +15,7 @@ const List<int> _solarMonthsOf31Days = const <int>[1, 3, 5, 7, 8, 10, 12];
 class DatePickerWidget extends StatefulWidget {
   DatePickerWidget({
     Key key,
+    this.style,
     this.firstDate,
     this.lastDate,
     this.initialDate,
@@ -31,6 +32,7 @@ class DatePickerWidget extends StatefulWidget {
     assert(minTime.compareTo(maxTime) < 0);
   }
 
+  final TextStyle style;
   final DateTime firstDate, lastDate, initialDate;
   final String dateFormat;
   final DateTimePickerLocale locale;
@@ -193,15 +195,20 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               child: CupertinoPicker(
                 backgroundColor: widget.pickerTheme.backgroundColor,
                 scrollController: scrollCtrl,
+                style: widget.style ?? TextStyle(fontSize: 32, fontWeight: FontWeight.w800),
                 squeeze: 0.95,
                 diameterRatio: 1.5,
                 itemExtent: widget.pickerTheme.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
                 children: List<Widget>.generate(
-                  valueRange.last - valueRange.first + 1, (index) =>
-                    _renderDatePickerItemComponent(
-                      valueRange.first + index, format, fontSize,),),
+                  valueRange.last - valueRange.first + 1,
+                  (index) => _renderDatePickerItemComponent(
+                    valueRange.first + index,
+                    format,
+                    fontSize,
+                  ),
+                ),
               ),
             ),
           ),

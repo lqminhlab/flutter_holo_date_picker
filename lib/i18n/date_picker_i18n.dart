@@ -20,6 +20,7 @@ part 'strings_tr.dart';
 part 'strings_zh_cn.dart';
 part 'strings_fr.dart';
 part 'strings_vi.dart';
+part 'strings_vi_short.dart';
 
 abstract class _StringsI18n {
   const _StringsI18n();
@@ -100,6 +101,9 @@ enum DateTimePickerLocale {
 
   /// VietNam (VI)
   vi,
+
+  /// VietNam (VI)
+  vi_short,
 }
 
 /// Default value of date locale
@@ -127,6 +131,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.no_nn: const _StringsNoNn(),
   DateTimePickerLocale.fr: const _StringsFr(),
   DateTimePickerLocale.vi: const _StringsVI(),
+  DateTimePickerLocale.vi_short: const _StringsVI(),
 };
 
 class DatePickerI18n {
